@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="source">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="jobs"/>
+        <xs:element ref="generationtime"/>
+        <xs:element ref="jobscount"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="jobs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="job"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="job">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="category"/>
+        <xs:element ref="company"/>
+        <xs:element ref="description"/>
+        <xs:element ref="descriptionhtml"/>
+        <xs:element ref="education"/>
+        <xs:element ref="experience"/>
+        <xs:element ref="industry"/>
+        <xs:element ref="isremote"/>
+        <xs:element ref="jobreqid"/>
+        <xs:element ref="locations"/>
+        <xs:element ref="postedate"/>
+        <xs:element ref="title"/>
+        <xs:element ref="url"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="category" type="xs:string"/>
+  <xs:element name="company" type="xs:string"/>
+  <xs:element name="description" type="xs:string"/>
+  <xs:element name="descriptionhtml" type="xs:string"/>
+  <xs:element name="education" type="xs:string"/>
+  <xs:element name="experience" type="xs:string"/>
+  <xs:element name="industry" type="xs:string"/>
+  <xs:element name="isremote" type="xs:boolean"/>
+  <xs:element name="jobreqid" type="xs:NMTOKEN"/>
+  <xs:element name="locations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="location"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="location">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="city"/>
+        <xs:element ref="country"/>
+        <xs:element ref="state"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="city" type="xs:string"/>
+  <xs:element name="country" type="xs:string"/>
+  <xs:element name="state" type="xs:string"/>
+  <xs:element name="postedate" type="xs:date"/>
+  <xs:element name="title" type="xs:string"/>
+  <xs:element name="url" type="xs:anyURI"/>
+  <xs:element name="generationtime" type="xs:dateTime"/>
+  <xs:element name="jobscount" type="xs:integer"/>
+</xs:schema>
